@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         User userTarget = ListActivity.userList.get(id);
 
 
-        Button followButton = findViewById(R.id.followBtn);
+        Button followButton = findViewById(R.id.btnFollow);
 
         TextView loremText = findViewById(R.id.loremText);
         loremText.setText(userTarget.description);

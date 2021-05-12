@@ -25,7 +25,7 @@ public class ListActivity extends AppCompatActivity {
             userList.add(new User("Name" + randomNum(), i, "Description " + randomNum(), getRandomBool()));
         }
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        RecyclerView recyclerView = findViewById(R.id.rv);
         UserAdapter mAdapter = new UserAdapter(userList, this);
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
