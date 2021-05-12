@@ -2,7 +2,6 @@ package sg.edu.np.mad.madpractical;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +11,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "Main Activity";
+    User userTarget;
+    Button followButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +23,9 @@ public class MainActivity extends AppCompatActivity {
 //                "Hello, I am Julian. I enjoy playing sports and computer games. I have two doggos, Stitch and Hermione.",
 //                false);
         int id = getIntent().getIntExtra("Position", 0);
+        userTarget = ListActivity.userList.get(id);
 
-        User userTarget = ListActivity.userList.get(id);
-
-
-        Button followButton = findViewById(R.id.btnFollow);
+        followButton = findViewById(R.id.btnFollow);
 
         TextView loremText = findViewById(R.id.loremText);
         loremText.setText(userTarget.description);
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 //            helloText.setText("MAD " + receivingEnd.getIntExtra("randomNo", 0));
 //        }
 
-        if (userTarget.followed == true) {
+        if (userTarget.isFollowed()) {
             followButton.setText("Unfollow");
         }
         else {
@@ -48,18 +47,18 @@ public class MainActivity extends AppCompatActivity {
         followButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.v(TAG, "Clicked");
                 int duration = Toast.LENGTH_SHORT;
 
-                if (userTarget.followed == true) {
+                if (userTarget.isFollowed()) {
                     followButton.setText("Follow");
                     Toast.makeText(MainActivity.this, "Unfollowed", duration).show();
-                    userTarget.followed = false;
+                    userTarget.setFollowed(false);
+
                 }
                 else {
                     followButton.setText("Unfollow");
                     Toast.makeText(MainActivity.this, "Followed", duration).show();
-                    userTarget.followed = true;
+                    userTarget.setFollowed(true);
                 }
             }
         });

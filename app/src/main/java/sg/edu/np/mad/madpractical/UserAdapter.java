@@ -3,7 +3,6 @@ package sg.edu.np.mad.madpractical;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class UserAdapter extends RecyclerView.Adapter<ViewHolder>{
     ArrayList<User> data;
@@ -46,7 +44,7 @@ public class UserAdapter extends RecyclerView.Adapter<ViewHolder>{
             @Override
             public void onClick(View v) {
                 //Creating dialog box
-                new AlertDialog.Builder(holder.image.getContext())
+                new AlertDialog.Builder(context)
                         .setTitle("Profile")
                         .setMessage(user.name)
                         .setNegativeButton("Close", null)
