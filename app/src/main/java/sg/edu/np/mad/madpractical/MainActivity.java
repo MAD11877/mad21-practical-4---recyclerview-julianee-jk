@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 //            helloText.setText("MAD " + receivingEnd.getIntExtra("randomNo", 0));
 //        }
 
-        if (userTarget.isFollowed()) {
+        if (userTarget.followed == true) {
             followButton.setText("Unfollow");
         }
         else {
@@ -51,15 +51,15 @@ public class MainActivity extends AppCompatActivity {
                 Log.v(TAG, "Clicked");
                 int duration = Toast.LENGTH_SHORT;
 
-                if (userTarget.isFollowed()) {
+                if (userTarget.followed == true) {
                     followButton.setText("Follow");
                     Toast.makeText(MainActivity.this, "Unfollowed", duration).show();
-                    userTarget.setFollowed(false);
+                    userTarget.followed = false;
                 }
                 else {
                     followButton.setText("Unfollow");
                     Toast.makeText(MainActivity.this, "Followed", duration).show();
-                    userTarget.setFollowed(true);
+                    userTarget.followed = true;
                 }
             }
         });
