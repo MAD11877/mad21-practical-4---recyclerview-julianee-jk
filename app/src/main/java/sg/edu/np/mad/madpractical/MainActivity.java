@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 //        if (receivingEnd.getIntExtra("randomNo", 0) > 0) {
 //            helloText.setText("MAD " + receivingEnd.getIntExtra("randomNo", 0));
 //        }
-
         if (userTarget.isFollowed()) {
             followButton.setText("Unfollow");
         }
