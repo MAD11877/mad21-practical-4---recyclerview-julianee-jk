@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,7 +20,7 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         // Add user objects
-        for (int i=1; i < 21; ++i) {
+        for (int i=0; i < 20; i++) {
             userList.add(new User("Name" + randomNum(), i, "Description " + randomNum(), getRandomBool()));
         }
 
@@ -33,7 +32,6 @@ public class ListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
-
     }
 
     private int randomNum() {
@@ -47,30 +45,25 @@ public class ListActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.v(TAG, "Start");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.v(TAG, "Resume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.v(TAG, "Pause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.v(TAG, "Stop");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.v(TAG, "Destroy");
     }
 }
